@@ -12,7 +12,7 @@ module.exports = {
       },
       eventbriteId: {
         allowNull: false,
-        type: Sequelize.STRING,
+        type: Sequelize.BIGINT,
         unique: true
       },
       retrievedAt: {
@@ -57,6 +57,21 @@ module.exports = {
       }
     })
 
+    await queryInterface.addIndex(
+      'Events',
+      {
+        fields: ['eventbriteId'],
+        unique: true
+      }
+    )
+
+    await queryInterface.addIndex(
+      'Events',
+      {
+        fields: ['startDate']
+      }
+    )
+
     // TicketClasses table
     await queryInterface.createTable('TicketClasses', {
       id: {
@@ -67,7 +82,7 @@ module.exports = {
       },
       eventbriteId: {
         allowNull: false,
-        type: Sequelize.STRING,
+        type: Sequelize.BIGINT,
         unique: true
       },
       retrievedAt: {
@@ -125,6 +140,20 @@ module.exports = {
         defaultValue: new Date()
       }
     })
+
+    await queryInterface.addIndex(
+      'TicketClasses',
+      {
+        fields: ['eventbriteId'],
+        unique: true
+      }
+    )
+    await queryInterface.addIndex(
+      'TicketClasses',
+      {
+        fields: ['price']
+      }
+    )
   },
 
   async down (queryInterface, Sequelize) {

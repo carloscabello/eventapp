@@ -2,6 +2,8 @@
 
 Relevant endpoints from the [Eventbrite API](https://www.eventbrite.com/platform/docs/introduction) for the Eventapp web application.
 
+The [node-fetch](https://github.com/node-fetch/node-fetch/tree/2.x) module was used to send request to the EventbriteAPI.
+
 ## Events
 
 The Event object represents an Eventbrite Event. An Event is owned by one [Organization](https://www.eventbrite.com/platform/api#/organization_object).
