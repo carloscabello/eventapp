@@ -4,9 +4,77 @@
 
 The main goal of the app is to **list events in San Francisco, USA**.
 
-Events are created previously at [Eventbrite](https://www.eventbrite.com/), then their corresponding IDs are stored. The events' information, including its tickets, is then retrived through the Eventbrite API and stored on a database. Then, all of this is presented to the user from the app *frontend*.
+Events are created previously at [Eventbrite](https://www.eventbrite.com/), then their corresponding IDs are stored. The events' information, including its tickets, is then retrived through the Eventbrite API and stored on a database. After that, all of this is presented to the user from the app *frontend*.
+
+## Deployment
+
+For further details, please check the [docs/Deployment.md](docs/Deployment.md) file.
+
+First, we need a MariaDB server running. An easy way of deploying one is using docker:
+
+```shell
+docker run --detach --name eventapp_db \
+    -p 3306:3306 \
+    -e ALLOW_EMPTY_PASSWORD=yes \
+    -e MARIADB_USER=eventapp_user \
+    -e MARIADB_PASSWORD=eventapp_user \
+    -e MARIADB_DATABASE=eventapp \
+  bitnami/mariadb:10.7
+```
+
+Second, we need to deploy the Node.js application:
+
+```shell
+cd ./backend
+npm install
+cp .env.example .env
+npm start
+```
+
+The default `.env.example` has the following values:
+
+```
+DATABASE_HOST=localhost
+DATABASE_PORT=3306
+DATABASE_USERNAME=eventapp_user
+DATABASE_PASSWORD=eventapp_user
+DATABASE_NAME=eventapp
+APP_PORT=3000
+EVENTBRITE_API_KEY=eventbrite_api_private_token
+```
+
+We need to provide our own `eventbrite_api_private_token` that we can obtain with an [Eventbrite](https://www.eventbrite.com/platform/api#/introduction) account.
+
+We need to execute the migrations to create the database schema and seeders to fill it with some data.
+
+```shell
+npx sequelize-cli db:migrate:undo:all # Optional: Restores database
+
+npx sequelize-cli db:migrate
+npx sequelize-cli db:seed:all
+```
 
 ## Overview
+
+To check the application is properly running, we can send a request to the base url of the application:
+
+```
+http://localhost:3000/eventbrite/
+```
+
+We should see the following response:
+
+```html
+Eventapp API. Check <a href="https://github.com/carloscabello/eventapp">Repository</a>
+```
+
+To **fetch the event's information from the Eventbrite API and store it in the database**, there is an available endpoint:
+
+```
+[GET] http://localhost:3000/eventbrite/fetchall
+```
+
+The relevant endpoints from the Eventbrite API are documented at [docs/EventbriteAPI.md](docs/EventbriteAPI.md).
 
 ### Requirements
 

@@ -17,17 +17,17 @@ module.exports = {
         // Later, all events' data will be retrieved through the EventbriteAPI and saved
 
         // Software Engineers' Gymkhana
-        { eventbriteId: '358418879517' },
+        { eventbriteId: 358418879517 },
         // Eventapp Hackathon
-        { eventbriteId: '358734282897' },
+        { eventbriteId: 358734282897 },
         // 0 A.D. game tournament
-        { eventbriteId: '358823900947' },
+        { eventbriteId: 358823900947 },
         // Full-stack workshop
-        { eventbriteId: '358819748527' },
+        { eventbriteId: 358819748527 },
         // Single ticket Event
-        { eventbriteId: '358751544527' },
+        { eventbriteId: 358751544527 },
         // Round table discussion
-        { eventbriteId: '358830420447' }
+        { eventbriteId: 358830420447 }
       ], {})
   },
 

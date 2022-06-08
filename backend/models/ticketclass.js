@@ -13,10 +13,14 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       TicketClass.belongsTo(models.Event, { foreignKey: 'eventId', as: 'event' })
     }
+
+    isSoldOut () {
+      return (this.quantityTotal <= this.quantitySold)
+    }
   }
   TicketClass.init({
     eventbriteId: {
-      type: DataTypes.STRING,
+      type: DataTypes.BIGINT,
       unique: true
     },
     retrievedAt: DataTypes.DATE,
@@ -52,7 +56,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }, {
     sequelize,
-    modelName: 'Event'
+    modelName: 'TicketClass'
   })
   return TicketClass
 }
