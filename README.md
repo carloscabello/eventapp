@@ -1,6 +1,6 @@
 # Eventapp
 
-*Eventapp* is a simple events web application built with [Node.js](https://nodejs.org/en/about/) using [Sequelize](https://sequelize.org/docs/v6/) and the [Express.js](https://expressjs.com/) in the backend and [React Native](https://reactnative.dev/docs/getting-started) in the frontend. The application also connects to the [Eventbrite API](https://www.eventbrite.com/platform/api). 
+*Eventapp* is a simple events web application. The _backend_ was built with [Node.js](https://nodejs.org/en/about/) using [Sequelize](https://sequelize.org/docs/v6/) and the [Express.js framework](https://expressjs.com/). The _frontend_ was built using the [React Native](https://reactnative.dev/docs/getting-started) framework. The application also connects to the [Eventbrite API](https://www.eventbrite.com/platform/api). 
 
 The main goal of the app is to **list events in San Francisco, USA**.
 
