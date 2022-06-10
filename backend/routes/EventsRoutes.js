@@ -7,4 +7,6 @@ module.exports = (options) => {
 
   app.route('/events')
     .get(EventsController.index)
+  app.route('/events/:eventId')
+    .get(EventsController.show)
 }

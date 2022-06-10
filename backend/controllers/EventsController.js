@@ -1,6 +1,8 @@
 'use strict'
+const { Op } = require('sequelize')
 const models = require('../models')
 const Event = models.Event
+const TicketClass = models.TicketClass
 
 exports.index = async function (req, res) {
   const whereClauses = generateFilterWhereClauses(req)
@@ -12,6 +14,30 @@ exports.index = async function (req, res) {
     )
 
     res.json(events)
+  } catch (err) {
+    res.status(500).send(err)
+  }
+}
+
+exports.show = async function (req, res) {
+  try {
+    const eventId = req.params.eventId
+    const event = await Event.findOne({
+      where: {
+        [Op.or]: [
+          { id: eventId },
+          { eventbriteId: eventId }
+        ]
+      },
+      include:
+    { model: TicketClass, as: 'ticketClasses' }
+    })
+
+    if (event === null) {
+      res.status(404).send('Event not found')
+    } else {
+      res.json(event)
+    }
   } catch (err) {
     res.status(500).send(err)
   }
