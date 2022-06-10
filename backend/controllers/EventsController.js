@@ -9,7 +9,11 @@ exports.index = async function (req, res) {
   try {
     const events = await Event.findAll(
       {
-        where: whereClauses
+        where: whereClauses,
+        order: [
+          ['startDate', 'ASC'],
+          ['endDate', 'ASC']
+        ]
       }
     )
 
