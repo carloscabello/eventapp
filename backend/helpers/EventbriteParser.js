@@ -5,18 +5,14 @@ const TicketClass = models.TicketClass
 
 exports.toEvent = async function (eventbriteResponse) {
   try {
-    let event
-
-    event = await Event.findOne({
+    // eslint-disable-next-line no-unused-vars
+    const [event, wasCreated] = await Event.findOrCreate({
       // subQuery: false,
-      where: { eventbriteId: eventbriteResponse.id }
-    })
-
-    if (event === null) {
-      event = Event.build({
+      where: { eventbriteId: eventbriteResponse.id },
+      defaults: {
         eventbriteId: eventbriteResponse.id
-      })
-    }
+      }
+    })
 
     event.retrievedAt = new Date()
 
@@ -39,7 +35,6 @@ exports.toEvent = async function (eventbriteResponse) {
 exports.toTicketClass = async function (eventbriteResponse) {
   try {
     let ticketClass
-
     ticketClass = await TicketClass.findOne({
       // subQuery: false,
       where: { eventbriteId: eventbriteResponse.id }

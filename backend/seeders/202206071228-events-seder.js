@@ -27,7 +27,15 @@ module.exports = {
         // Single ticket Event
         { eventbriteId: 358751544527 },
         // Round table discussion
-        { eventbriteId: 358830420447 }
+        { eventbriteId: 358830420447 },
+        // Online Language Exchange
+        { eventbriteId: 362885629687 },
+        // Online Minetest hangout
+        { eventbriteId: 362889611597 }
+        // Experimental Music Festival
+        // { eventbriteId: 362884135217 }
+        // Online Language Exchange (2nd Edition)
+        // { eventbriteId: 362888387937 }
       ], {})
   },
 

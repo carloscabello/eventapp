@@ -188,3 +188,12 @@ These events' IDs are included in the `backend/seeders/202206071228-events-seder
 | Full-stack workshop          | 358819748527 |
 | Single ticket Event          | 358751544527 |
 | Round table discussion       | 358830420447 |
+| Online Language Exchange     | 362885629687 |
+| Online Minetest hangout      | 362889611597 |
+
+There's also some additional events that are no included in the seeders so we can test fetching and storing events from scratch.
+
+| Event name                             | Evenbrite ID |
+| -------------------------------------- | ------------ |
+| Experimental Music Festival            | 362884135217 |
+| Online Language Exchange (2nd Edition) | 362888387937 |
