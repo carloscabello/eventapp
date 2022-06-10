@@ -1,6 +1,6 @@
 'use strict'
 
-const FetchController = require('../controllers/FetchController.js')
+const FetchController = require('../controllers/FetchController')
 
 module.exports = (options) => {
   const app = options.app
