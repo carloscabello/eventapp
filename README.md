@@ -56,10 +56,12 @@ npx sequelize-cli db:seed:all
 
 ## Overview
 
-To check the application is properly running, we can send a request to the base url of the application:
+### Backend
+
+To check the backend application is properly running, we can send a request to the base URL of the application:
 
 ```
-http://localhost:3000/eventbrite/
+http://localhost:3000/
 ```
 
 We should see the following response:
@@ -68,13 +70,15 @@ We should see the following response:
 Eventapp API. Check <a href="https://github.com/carloscabello/eventapp">Repository</a>
 ```
 
-To **fetch the event's information from the Eventbrite API and store it in the database**, there is an available endpoint:
+To **fetch all Events' information from the Eventbrite API and store it in the database**, there is an available endpoint:
 
 ```
-[GET] http://localhost:3000/eventbrite/fetchall
+[GET] http://localhost:3000/fetch/events
 ```
 
-The relevant endpoints from the Eventbrite API are documented at [docs/EventbriteAPI.md](docs/EventbriteAPI.md).
+The rest of the available endpoints are documented at [docs/BackendAPI.md](docs/BackendAPI.md).
+
+Relevant endpoints from the [Eventbrite API](https://www.eventbrite.com/platform/api) are documented at [docs/EventbriteAPI.md](docs/EventbriteAPI.md).
 
 ### Requirements
 
