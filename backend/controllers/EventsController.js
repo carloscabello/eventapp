@@ -34,7 +34,10 @@ exports.show = async function (req, res) {
         ]
       },
       include:
-    { model: TicketClass, as: 'ticketClasses' }
+    { model: TicketClass, as: 'ticketClasses' },
+      order: [
+        ['ticketClasses', 'price', 'DESC']
+      ]
     })
 
     if (event === null) {
