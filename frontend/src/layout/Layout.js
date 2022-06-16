@@ -48,7 +48,7 @@ export default function Layout() {
       }}
       _web={
         {
-          overflowX: 'hidden',
+          // overflowX: 'hidden',
         }
       }>
       <Box>

@@ -1,20 +1,15 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import  {StyleSheet} from 'react-native'
 import {
   Box,
   Heading,
   Image,
   Text,
   HStack,
-  Stack,
-  Button,
-  Badge,
-  ZStack,
   VStack,
-  Pressable
 } from 'native-base'
 import { convertUTC2local } from '../helpers/DateConverter'
+import ConditionalBadge from './conditionalBadge'
 
 export default function eventCard({ item, index }) {
   return (
@@ -51,24 +46,13 @@ export default function eventCard({ item, index }) {
 
           <Box padding={4} space={3} alignItems="end">
             <HStack>
-              <ConditionalOnlineBadge isEventOnline={item.isOnline} />
+              <ConditionalBadge isVisible={item.isOnline} colorScheme="info" variant="solid">
+                Online
+              </ConditionalBadge>
             </HStack>
           </Box>
         </Box>
       </VStack>
     </Box>
   )
-}
-
-function ConditionalOnlineBadge(props) {
-  const { isEventOnline } = props
-  if (isEventOnline) {
-    return (
-      // eslint-disable-next-line react-native/no-raw-text
-      <Badge colorScheme="info" variant="solid">
-        Online
-      </Badge>
-    )
-  }
-  return null
 }
