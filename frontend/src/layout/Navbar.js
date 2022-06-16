@@ -10,21 +10,21 @@ export default function Navbar() {
       <HStack px="1" py="3" justifyContent="space-between" alignItems="center" w="100%">
         <HStack alignItems="center">
         <Button variant="unstyled" onPress={() => navigate('/')}>
-        <Text color="#6200ee" fontSize="20" fontWeight="bold">
+        <Text color="#05a565" fontSize="20" fontWeight="bold">
               Eventapp
             </Text>
         </Button>
         </HStack>
         <HStack>
-          <IconButton icon={<Icon as={MaterialIcons} name="add" size="md" color="#6200ee" />} />
+          <IconButton icon={<Icon as={MaterialIcons} name="add" size="md" color="#05a565" />} />
           <IconButton
-            icon={<Icon as={MaterialIcons} name="favorite" size="md" color="#6200ee" />}
+            icon={<Icon as={MaterialIcons} name="favorite" size="md" color="#05a565" />}
           />
           <IconButton
-            icon={<Icon as={MaterialIcons} name="confirmation-number" size="md" color="#6200ee" />}
+            icon={<Icon as={MaterialIcons} name="confirmation-number" size="md" color="#05a565" />}
           />
           <IconButton
-            icon={<Icon as={MaterialIcons} name="account-circle" size="md" color="#6200ee" />}
+            icon={<Icon as={MaterialIcons} name="account-circle" size="md" color="#05a565" />}
           />
         </HStack>
       </HStack>

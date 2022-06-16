@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import  {StyleSheet} from 'react-native'
 import {
   Box,
   Button,
@@ -22,24 +23,29 @@ const events = getAll()
 
 export default function EventsList() {
   // const [data, setdata] = useState(events)
-  const noColumn = useBreakpointValue({
+  const numColumns = useBreakpointValue({
     base: 2,
-    md: 4,
+    md: 4
   })
 
   return (
-    <FlatList
-      data={events}
-      // w="90%"
-      // mx="4"
-      // mt="8"
-      numColumns={noColumn}
-      renderItem={eventCard}
-      keyExtractor={(item) => item.id}
-      ItemSeparatorComponent={() => <Box w="10" h="10" />}
-      columnWrapperStyle={{
-        justifyContent: 'space-evenly',
-      }}
-    />
+    <Box maxWidth={1080} alignSelf="center" alignContent='center'>
+      <FlatList
+        data={events}
+        numColumns={numColumns}
+        key={numColumns}
+        renderItem={eventCard}
+        keyExtractor={(item) => item.id}
+        columnWrapperStyle={[styles.listColumn]}
+      />
+    </Box>
   )
 }
+
+const styles = StyleSheet.create({
+  listColumn: {
+    // alignContent: 'center',
+    justifyContent: 'space-around',
+    paddingVertical: 8,
+  }
+})

@@ -21,6 +21,7 @@ export default function EventDetailedScreen() {
           alt="Alternate Text"
           w="100%"
           h={300}
+          blurRadius={6}
         />
       </VStack>
       <VStack>
