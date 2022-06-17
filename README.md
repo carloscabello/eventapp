@@ -6,6 +6,44 @@ The main goal of the app is to **list events in San Francisco, USA**.
 
 Events are created previously at [Eventbrite](https://www.eventbrite.com/), then their corresponding IDs are stored. The events' information, including its tickets, is then retrived through the Eventbrite API and stored on a database. After that, all of this is presented to the user from the app *frontend*.
 
+## Overview
+
+### Frontend
+
+For now, the **frontend application is just a mockup and does not make calls to the backend**.
+
+#### Event list page
+
+![Eventapp - Events list landing page](docs/images/Eventapp-EventsListPage.png)
+
+#### Event detail page
+
+![Eventapp - Event detailed page](docs/images/Eventapp-EventDetailsPage.png)
+
+### Backend
+
+To check the backend application is properly running, we can send a request to the base URL of the application:
+
+```
+http://localhost:3000/
+```
+
+We should see the following response:
+
+```html
+Eventapp API. Check <a href="https://github.com/carloscabello/eventapp">Repository</a>
+```
+
+To **fetch all Events' information from the Eventbrite API and store it in the database**, there is an available endpoint:
+
+```
+[GET] http://localhost:3000/fetch/events
+```
+
+The rest of the available endpoints are documented at [docs/BackendAPI.md](docs/BackendAPI.md).
+
+Relevant endpoints from the [Eventbrite API](https://www.eventbrite.com/platform/api) are documented at [docs/EventbriteAPI.md](docs/EventbriteAPI.md).
+
 ## Deployment
 
 For further details, please check the [docs/Deployment.md](docs/Deployment.md) file.
@@ -62,45 +100,7 @@ npm install
 npm start
 ```
 
-## Overview
-
-### Frontend
-
-For now, the **frontend application is just a mockup and does not make calls to the backend**.
-
-#### Event list page
-
-![Eventapp - Events list landing page](docs/images/Eventapp-EventsListPage.png)
-
-#### Event detail page
-
-![Eventapp - Event detailed page](docs/images/Eventapp-EventDetailsPage.png)
-
-### Backend
-
-To check the backend application is properly running, we can send a request to the base URL of the application:
-
-```
-http://localhost:3000/
-```
-
-We should see the following response:
-
-```html
-Eventapp API. Check <a href="https://github.com/carloscabello/eventapp">Repository</a>
-```
-
-To **fetch all Events' information from the Eventbrite API and store it in the database**, there is an available endpoint:
-
-```
-[GET] http://localhost:3000/fetch/events
-```
-
-The rest of the available endpoints are documented at [docs/BackendAPI.md](docs/BackendAPI.md).
-
-Relevant endpoints from the [Eventbrite API](https://www.eventbrite.com/platform/api) are documented at [docs/EventbriteAPI.md](docs/EventbriteAPI.md).
-
-### Requirements
+## Requirements
 
 #### FR1: Event listing
 
