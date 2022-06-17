@@ -22,7 +22,7 @@ docker run --detach --name eventapp_db \
   bitnami/mariadb:10.7
 ```
 
-Second, we need to deploy the Node.js application:
+Second, we need to **deploy the backend application**:
 
 ```shell
 cd ./backend
@@ -54,7 +54,27 @@ npx sequelize-cli db:migrate
 npx sequelize-cli db:seed:all
 ```
 
+Finally, we can **deploy the frontend application**:
+
+```shell
+cd ./frontend
+npm install
+npm start
+```
+
 ## Overview
+
+### Frontend
+
+For now, the **frontend application is just a mockup and does not make calls to the backend**.
+
+#### Event list page
+
+![Eventapp - Events list landing page](docs/images/Eventapp-EventsListPage.png)
+
+#### Event detail page
+
+![Eventapp - Event detailed page](docs/images/Eventapp-EventDetailsPage.png)
 
 ### Backend
 
