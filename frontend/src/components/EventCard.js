@@ -9,9 +9,9 @@ import {
   VStack,
 } from 'native-base'
 import { convertUTC2local } from '../helpers/DateConverter'
-import ConditionalBadge from './conditionalBadge'
+import ConditionalBadge from './ConditionalBadge'
 
-export default function eventCard({ item, index }) {
+export default function EventCard({ item, index }) {
   return (
     <Box
       shadow={4}
@@ -24,7 +24,7 @@ export default function eventCard({ item, index }) {
         source={{
           uri: item.imageUri,
         }}
-        alt="NativeBase Card"
+        alt="Event image"
         style={{ aspectRatio: 2 / 1 }}
       />
 

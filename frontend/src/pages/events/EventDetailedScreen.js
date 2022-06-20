@@ -1,10 +1,10 @@
 /* eslint-disable react-native/no-raw-text */
 import React from 'react'
-import { Link, useParams, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import { Text, Box, VStack, Hidden, Image, Heading, HStack, Button } from 'native-base'
 import { getDetail } from '../../api/eventappMock'
 import { convertUTC2local } from '../../helpers/DateConverter'
-import ConditionalBadge from '../../components/conditionalBadge'
+import ConditionalBadge from '../../components/ConditionalBadge'
 
 export default function EventDetailedScreen() {
   const navigate = useNavigate()

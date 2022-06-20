@@ -15,7 +15,7 @@ import {
   Stack,
   useColorModeValue,
 } from 'native-base'
-import eventCard from '../../components/EventCard'
+import EventCard from '../../components/EventCard'
 import { getAll } from '../../api/eventappMock'
 // const EventCard = require('../../components/EventCard')
 // import {  FlatList } from 'react-native'
@@ -34,7 +34,7 @@ export default function EventsList() {
         data={events}
         numColumns={numColumns}
         key={numColumns}
-        renderItem={eventCard}
+        renderItem={EventCard}
         keyExtractor={(item) => item.id}
         columnWrapperStyle={[styles.listColumn]}
       />
