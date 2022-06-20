@@ -6,7 +6,11 @@ function getDetail (id) {
 return eventsMock[id-1]
 }
 
-export { getAll, getDetail }
+function getTickets(id){
+  return getDetail(id)['ticketClasses']
+}
+
+export { getAll, getDetail, getTickets }
 
 const eventsMock = [
   {

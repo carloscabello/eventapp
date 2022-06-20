@@ -1,15 +1,35 @@
 import React from 'react'
-import { View, Text } from 'react-native'
-import { Link, useParams, useNavigate } from 'react-router-dom'
-import { Box } from 'native-base'
+import { Link, useParams } from 'react-router-dom'
+import { FlatList, Box, Heading, Text } from 'native-base'
+import { getDetail, getTickets } from '../../api/eventappMock'
+import TicketClassItem from '../../components/TicketClassItem'
+import { convertUTC2local } from '../../helpers/DateConverter'
 
 export default function TicketClassList() {
-  const navigate = useNavigate()
   const params = useParams()
-  const {eventId} = params
+
+  const event = getDetail(params.eventId)
+  const ticketList = getTickets(params.eventId)
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Event Tickets. Id: {eventId}</Text>
-    </View>
+    <Box maxWidth={1080} alignSelf="center" alignContent="center">
+      <Box paddingY={10} paddingX={5}>
+        <Text color="#49475b" fontWeight="light" fontSize="xs">
+          ID: {event.id} | {event.eventbriteId}
+        </Text>
+        <Link to={`/event/${event.id}`}>
+          <Heading>{event.title}</Heading>
+        </Link>
+        <Text fontWeight="bold" color="#05a565">
+          {convertUTC2local(event.startDate)}
+        </Text>
+      </Box>
+      <Box>
+        <FlatList
+          data={ticketList}
+          renderItem={TicketClassItem}
+          keyExtractor={(item) => item.id.toString()}
+        />
+      </Box>
+    </Box>
   )
 }
